@@ -588,7 +588,7 @@ input, select, textarea {
 		-webkit-transition: color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out;
-		color: #98c593;
+		color: #1523e5;
 	}
 
 	sub {
@@ -1916,6 +1916,78 @@ input, select, textarea {
 			}
 
 		}
+
+/* dropdown menu style */
+.hamburger-icon, .sidebar-hamburger-icon {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease; /* Smooth transformation for rotation */
+	top: 10px;
+}
+
+.hamburger-icon span, .sidebar-hamburger-icon span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    margin-bottom: 6px;
+    background-color: #333; /* Default color for main hamburger icon */
+}
+
+/* Sidebar hamburger icon styles */
+.sidebar-hamburger-icon span {
+    background-color: #e5e6e7; /* Different color for the sidebar icon */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    right: -100%; /* Start offscreen to the right */
+    top: 0;
+    width: 100%; /* Adjust width to full screen */
+    height: 100vh;
+    background: linear-gradient(to right, #33333300 5%, #333 85%); /* Gradient from transparent to solid grey */
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transition: right 0.3s ease, opacity 2s ease;
+    z-index: 1001;
+	text-align: right;
+	color:#e5e6e7;
+	padding-right: 40px;
+}
+
+/* Sidebar Hamburger Icon */
+.sidebar-hamburger-icon {
+    display: none; /* Hidden by default */
+    transform: rotate(90deg); /* Pre-rotated */
+    padding: 10px 0; /* Spacing */
+}
+
+/* Rotate icon and move sidebar on toggle */
+.toggle-checkbox:checked + .hamburger-icon {
+    transform: rotate(90deg);
+}
+.toggle-checkbox:checked + .hamburger-icon + .sidebar {
+    right: 0; /* Move sidebar into view */
+}
+.toggle-checkbox:checked + .hamburger-icon + .sidebar .sidebar-hamburger-icon {
+    display: block; /* Show second hamburger when sidebar is active */
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    padding: 0;
+}
+
+
+
 
 /* Main */
 

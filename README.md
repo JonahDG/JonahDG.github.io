@@ -1,6 +1,7 @@
 # JonahDG.github.io
 This is a personal website for Jonah Goldfine.
-
+---
+### Changes Made to Theme
 
 ---
 ## Theme Details

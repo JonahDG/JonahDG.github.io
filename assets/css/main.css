@@ -1059,9 +1059,9 @@ $border-width: 4px;  */
     content: '';
     position: absolute;
     top: 0px;
-    left:calc(33% + 15px); 
+    left: 230px; 
     bottom: 0px;
-    width: 15px;
+    width: 5px;
 	background: #ddd;
   }
   &:after {

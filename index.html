@@ -56,14 +56,14 @@
 		<article id="About">
     		<h2 class="major">About</h2>
 				<figure style="float:left; width:300px; margin:0 20px 0px 0;">
-    				<img src="images/IMG_9010.JPG" alt="test" style="width:100%; display:block;" />
+    				<img src="images/animals/me_plate.JPG" alt="test" style="width:100%; display:block;" />
         			<figcaption style="text-align:center; font-size:0.5em; color:#d3d3d3; margin-top:4px;">
             			Me and my dog Sadie (AKA Plate)
         			</figcaption>
     			</figure>
 
     			<p>
-        			I am an astronomer-in-training completing a Masters of Research studying the use of machine and deep learning 
+        			I am an astronomer completing a Masters of Research studying the use of machine and deep learning 
         			to improve the capabilities of astronomical instruments. I currently live in Sydney and study at Macquarie 
         			University and previously studied at New York University and the University of Denver. I grew up Scottsdale, 
         			Arizona with my family — including my dogs.
@@ -84,40 +84,116 @@
 
 
     		<h2 class="major">Pets and Animal Friends</h2>
-    			<div class="row">
+    			<!-- <div class="row">
         			<div class="column">
-            			<img src="images/pic01.jpg" style="height:50px">
-            			<img src="images/pic02.jpg" style="height:75px">
+            			<img src="images/animals/54750AC4-B174-4210-9597-B8DCED5C8BB0.jpg" style="height:500px">
+						<img src="images/pic02.jpg" style="height:75px">         			
         			</div>
-    			</div>
+					<div class="column">
+							
+					</div>
+    			</div> -->
+				<div class="row">
+
+    				<div class="column">
+        				<img src="images/animals/54750AC4-B174-4210-9597-B8DCED5C8BB0.jpg" style="height:500px">
+						<img src="images/animals/IMG_8275.jpeg" style="height:500px">
+						<img src="images/animals/IMG_9096.jpeg" style="height:500px">
+						<img src="images/animals/IMG_9989.jpeg" style="height:750px">
+						<img src="images/animals/IMG_8477.jpeg" style="height:750px">
+						<img src="images/animals/IMG_9211.jpeg" style="height:375px">
+						<img src="images/animals/IMG_8975.jpeg" style="height:375px">
+						<img src="images/animals/IMG_9988.jpeg" style="height:375px">
+						<img src="images/animals/IMG_8812.jpeg" style="height:375px">
+						<img src="images/animals/IMG_9242.jpeg" style="height:375px">
+    				</div>
+
+    				<!-- <div class="column">
+        				<img src="images/pic01.jpg" style="height:75px">
+        				<img src="images/pic02.jpg" style="height:75px">
+        				<img src="images/pic03.jpg" style="height:75px">
+    				</div> -->
+
+				</div>
 			</article>
 
 						<!-- Research -->
 						<article id="Research">
 							<h2 class="major">Research</h2>
 							<h3 class="major">Current Work</h3>
-								<figure style="float:left; width:300px; margin:0 20px 15px 0;">
-        							<img src="images/emnist_science_5x.gif" alt="test" style="width:100%; display:block;" />
+								<figure style="float:right; width:300px; margin:0 20px 15px 0;">
+        							<img src="images/research/emnist_science_5x.gif" alt="AMI" style="width:100%; display:block;" />
     								<figcaption style="text-align:center; font-size:0.5em; color:#d3d3d3; margin-top:4px;">
-        								"SCIENCE IS FUN" sliding through the latent space of an autoencoder
+        								PLACEHELD FOR Prototype of <em>AMI</em> filter that is currently on <em>JWST</em>
         							</figcaption>
     							</figure>
 								<p>
-									PLACEHOLDER TEXT
+									For my Masters of Research, I am working with Prof. Benjamin Pope (Macquarie University) and Ph.D. 
+									candidate Max Charles (University of Sydney) to use machine learning to augment 
+									<a href="https://arxiv.org/pdf/2510.10924"><strong>dorito</strong></a>, a regularized-maximum likelihood
+									framework for deconvolving interferograms from <em>JWST</em>'s <em>Aperture Mask Interferometer</em>
+									(<em>AMI</em>) with the goal of improving the angular resolution in order to see more complex structures
+									within protoplanetary disks. In particular, we hope to find complex substractors that could indicate the 
+									presence of planets and potential dynamical processes that form them.
+									
+									<!-- to build a machine-learned initialization for
+									<a href="https://arxiv.org/pdf/2510.10924"><strong>dorito</strong></a>, a regularized-maximum likelihood
+									framework for deconvolving interferograms from <em>JWST</em>'s <em>Aperture Mask Interferometer</em>
+									(<em>AMI</em>). <em>AMI</em> is the one interferometer on <em>JWST</em> and it is a part of the 
+									<em>Near-Infrared Imager and Slitless Spectrograph</em> (<em>NIRIS</em>) and works by masking off all,
+									but seven of the mirrors, the light from which can be combined and intereferd to perform interferometry.
+									Unfortunately these images, are entirely indeciferable on their own and need to be deconvolved. This is 
+									where Max and I come it. -->
 								</p>
+								<figure style="float:left; width:300px; margin:0 20px 15px 0;">
+        							<!-- <object data="images/research/GoldfineJonah_MResPoster copy.pdf" type="application/pdf" width="100%" height="500px"></object> -->
+									<iframe
+										src="images/research/GoldfineJonah_MResPoster copy.pdf"
+										style="height:500px; display:block;"
+										title="MRes Poster"
+									>
+										<p>
+      										Your browser does not support PDFs. You can
+      										 instead.
+    									</p>
+									</iframe>
+    							</figure>
+								<p>
+									In order to do this, I have developed a convolutional autoencoder that learns two things:
+									<ul>
+										<li>
+											How to encode the two dimensional image space into a compressed representation, or latent space,
+											and then decode it back into the original image space.
+										</li>
+										<li>
+											Denoise images as it is learning the encoding and decoding.
+										</li>
+									</ul>
+									By making the encoder and decoder portions of the autoencoder seperable, I am able to replace the pixel space
+									portion of the deconvolution within <strong>dorito</strong> with one in the machine-learned latent space. This 
+									means that there are far fewer features to gradient descend on. Like many other data compression methods, this
+									is not lossless, but a vast majority of the information is preserved. Going one step further, I've used a 
+									normalized version of the latent space to create a machine-learned initialization for 
+									<strong>dorito</strong> to replace something like a dirty beam or uniform distribution.
+								</p>
+								
+								<p>
+									So far I've developed an autoencoder trained on emnist leters and numbers as a baseline architecture before
+									switching to images that better represent the kinds of objects we might be able to see with <em>AMI</em>.
+								</p> -->
 								
 							<h3 class="major">Past Work</h3>
 								<figure style="float:right; width:550px; margin:20px 20px 20px 20px;">
-    								<img src="images/lightcurve.png" alt="test" style="width:100%; display:block;" />
+    								<img src="images/research/lightcurve.png" alt="test" style="width:100%; display:block;" />
         							<figcaption style="text-align:center; font-size:0.5em; color:#d3d3d3; margin-top:4px;">
-            							Lightcurves phases folded by mutliples of the peiord
+            							Lightcurves phases folded by mutliples of the period
         							</figcaption>
     							</figure>
 								<p>
 									During my time at NYU and the University of Denver, I worked with Professor David W. Hogg (NYU, 
 									Flatiron Institute) and Adrian Price-Whelan (Flatiron Institue) looking for a correlation between
 									light-curve variability and Monte Carlo samples using 
-									<a href="https://arxiv.org/abs/1610.07602">The Joker</a> (Yo-ker) and the Lomb-Scargle and box-
+									<a href="https://arxiv.org/abs/1610.07602"><strong>The Joker</strong></a> (Yo-ker) and the Lomb-Scargle and box-
 									least-squares periodograms. This resulted in two abstracts and posters presented at the 
 									<a href="https://scixplorer.org/abs/2023AAS...24130232G/abstract">241st</a> and
 									<a href="https://scixplorer.org/abs/2023AAS...24130232G/abstract">243rd</a> AAS meetings. 
@@ -125,7 +201,7 @@
 								<p>
 									This project involved taking periods of variable stars using various method (The Joker and periodograms)
 									to determind the optimal period to "fold" the lightcurve. I would also compare the periodgram-folded
-									lightcurves with the period-eccentricity samples from The Joker.
+									lightcurves with the period-eccentricity samples from <strong>The Joker</strong>.
 								</p>
 						</article>
 

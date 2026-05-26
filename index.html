@@ -115,72 +115,66 @@
     				</div> -->
 
 				</div>
-			</article>
+		</article>
 
-						<!-- Research -->
-						<article id="Research">
-							<h2 class="major">Research</h2>
-							<h3 class="major">Current Work</h3>
-								<figure style="float:right; width:300px; margin:0 20px 15px 0;">
-        							<img src="images/research/emnist_science_5x.gif" alt="AMI" style="width:100%; display:block;" />
-    								<figcaption style="text-align:center; font-size:0.5em; color:#d3d3d3; margin-top:4px;">
-        								PLACEHELD FOR Prototype of <em>AMI</em> filter that is currently on <em>JWST</em>
-        							</figcaption>
-    							</figure>
-								<p>
-									For my Masters of Research, I am working with Prof. Benjamin Pope (Macquarie University) and Ph.D. 
-									candidate Max Charles (University of Sydney) to use machine learning to augment 
-									<a href="https://arxiv.org/pdf/2510.10924"><strong>dorito</strong></a>, a regularized-maximum likelihood
-									framework for deconvolving interferograms from <em>JWST</em>'s <em>Aperture Mask Interferometer</em>
-									(<em>AMI</em>) with the goal of improving the angular resolution in order to see more complex structures
-									within protoplanetary disks. In particular, we hope to find complex substractors that could indicate the 
-									presence of planets and potential dynamical processes that form them.
+		<!-- Research -->
+		<article id="Research">
+			<h2 class="major">Research</h2>
+			<h3 class="major">Current Work</h3>
+				<figure style="float:right; width:300px; margin:0 20px 15px 0;">
+        			<img src="images/research/emnist_science_5x.gif" alt="AMI" style="width:100%; display:block;" />
+    				<figcaption style="text-align:center; font-size:0.5em; color:#d3d3d3; margin-top:4px;">
+        				Sliding through machine-learned latent space of eMNIST letters spelling "Science is fun"
+        			</figcaption>
+    			</figure>
+				<p>
+					For my Masters of Research, I am working with Prof. Benjamin Pope (Macquarie University) and Ph.D. 
+					candidate Max Charles (University of Sydney) to use machine learning to augment 
+					<a href="https://arxiv.org/pdf/2510.10924"><strong>dorito</strong></a>, a regularized-maximum likelihood
+					framework for deconvolving interferograms from <em>JWST</em>'s <em>Aperture Mask Interferometer</em>
+					(<em>AMI</em>) with the goal of improving the angular resolution in order to see more complex structures
+					within protoplanetary disks. In particular, we hope to find complex substractors that could indicate the 
+					presence of planets and potential dynamical processes that form them.
+				</p>
+				<figure style="float:left; width:300px; margin:0px 20px 15px 0px;">
+    				<iframe
+        				src="images/research/GoldfineJonah_MResPoster.pdf#view=FitH"
+        				style="width:100%; height:500px;display:block;"
+						title="MRes Poster"
+					>
+    				</iframe>
 									
-									<!-- to build a machine-learned initialization for
-									<a href="https://arxiv.org/pdf/2510.10924"><strong>dorito</strong></a>, a regularized-maximum likelihood
-									framework for deconvolving interferograms from <em>JWST</em>'s <em>Aperture Mask Interferometer</em>
-									(<em>AMI</em>). <em>AMI</em> is the one interferometer on <em>JWST</em> and it is a part of the 
-									<em>Near-Infrared Imager and Slitless Spectrograph</em> (<em>NIRIS</em>) and works by masking off all,
-									but seven of the mirrors, the light from which can be combined and intereferd to perform interferometry.
-									Unfortunately these images, are entirely indeciferable on their own and need to be deconvolved. This is 
-									where Max and I come it. -->
-								</p>
-								<figure style="float:left; width:300px; margin:0 20px 15px 0;">
-        							<!-- <object data="images/research/GoldfineJonah_MResPoster copy.pdf" type="application/pdf" width="100%" height="500px"></object> -->
-									<iframe
-										src="images/research/GoldfineJonah_MResPoster copy.pdf"
-										style="height:500px; display:block;"
-										title="MRes Poster"
-									>
-										<p>
-      										Your browser does not support PDFs. You can
-      										 instead.
-    									</p>
-									</iframe>
-    							</figure>
-								<p>
-									In order to do this, I have developed a convolutional autoencoder that learns two things:
-									<ul>
-										<li>
-											How to encode the two dimensional image space into a compressed representation, or latent space,
-											and then decode it back into the original image space.
-										</li>
-										<li>
-											Denoise images as it is learning the encoding and decoding.
-										</li>
-									</ul>
-									By making the encoder and decoder portions of the autoencoder seperable, I am able to replace the pixel space
-									portion of the deconvolution within <strong>dorito</strong> with one in the machine-learned latent space. This 
-									means that there are far fewer features to gradient descend on. Like many other data compression methods, this
-									is not lossless, but a vast majority of the information is preserved. Going one step further, I've used a 
-									normalized version of the latent space to create a machine-learned initialization for 
-									<strong>dorito</strong> to replace something like a dirty beam or uniform distribution.
-								</p>
+    				<figcaption>
+        				<a href="images/research/GoldfineJonah_MResPoster.pdf">
+            				Download the PDF of MRes Poster Presentation
+        				</a>
+    				</figcaption>
+					</figure>
+					<p>
+						In order to do this, I have developed a convolutional autoencoder that learns two things:
+					</p>
+					<ul style="margin-left: 325px;">
+						<li>
+							How to encode the two dimensional image space into a compressed representation, or latent space,
+							and then decode it back into the original image space.
+						</li>
+						<li>
+							Denoise images as it is learning the encoding and decoding.
+						</li>
+					</ul>
+					<p>
+						By making the encoder and decoder portions of the autoencoder seperable, I am able to replace the pixel space
+						portion of the deconvolution within <strong>dorito</strong> with one in the machine-learned latent space. This 
+						means that there are far fewer features to gradient descend on. Like many other data compression methods, this
+						is not lossless, but a vast majority of the information is preserved. Going one step further, I've used a 
+						normalized version of the latent space to create a machine-learned initialization for 
+						<strong>dorito</strong> to replace something like a dirty beam or uniform distribution.
+						</p>
 								
 								<p>
 									So far I've developed an autoencoder trained on emnist leters and numbers as a baseline architecture before
 									switching to images that better represent the kinds of objects we might be able to see with <em>AMI</em>.
-								</p> -->
+								</p> 
 								
 							<h3 class="major">Past Work</h3>
 								<figure style="float:right; width:550px; margin:20px 20px 20px 20px;">
@@ -207,8 +201,295 @@
 
 						<!-- Timeline and CV -->
 						 <article id="TimelineCV">
+							<h2 class="major">Timeline & CV</h2>
+							<style>
+								/* Stage and viewport */
+								#TimelineCV .edu-stage {
+									position: relative;
+									background: rgba(255,255,255,0.05);
+									border: solid 1px rgba(255,255,255,0.15);
+									border-radius: 4px;
+									padding: 2em 1.5em;
+									margin-bottom: 2em;
+									overflow: hidden;
+								}
+								#TimelineCV .edu-viewport {
+									overflow: hidden;
+									width: 100%;
+								}
 							
+								/* Track: a strip wide enough to hold all slides side-by-side */
+								#TimelineCV .edu-track {
+									display: flex !important;
+									flex-direction: row !important;
+									flex-wrap: nowrap !important;
+									align-items: stretch !important;
+									width: max-content;
+									transition: transform 0.4s ease;
+								}
+							
+								/* Slide: every card is a fixed-size, self-contained box */
+								#TimelineCV .edu-card {
+									flex: 0 0 auto !important;
+									width: 100%;          /* will be overridden by JS to viewport width */
+									box-sizing: border-box !important;
+									min-height: 220px;
+									padding: 2em;
+									text-align: center;
+								
+									/* Center the contents vertically inside the slide */
+									display: flex !important;
+									flex-direction: column !important;
+									justify-content: center !important;
+									align-items: center !important;
+								}
+							
+								/* Reset all text inside slides — kill theme leakage */
+								#TimelineCV .edu-card p,
+								#TimelineCV .edu-card span,
+								#TimelineCV .edu-card div {
+									margin: 0;
+									padding: 0;
+								}
+							
+								/* Vertical rhythm between text rows */
+								#TimelineCV .edu-card > * + * {
+									margin-top: 0.5em;
+								}
+							
+								/* Text styling */
+								#TimelineCV .edu-dates {
+									font-size: 0.8em;
+									letter-spacing: 0.2em;
+									text-transform: uppercase;
+									color: rgba(255,255,255,0.5);
+								}
+								#TimelineCV .edu-degree {
+									font-size: 1.4em;
+									font-weight: 400;
+									color: #ffffff;
+									line-height: 1.3;
+								}
+								#TimelineCV .edu-school {
+									font-size: 1em;
+									color: rgba(255,255,255,0.65);
+								}
+								#TimelineCV .edu-project {
+									font-size: 1.4em;
+									font-weight: 400;
+									color: #ffffff;
+									line-height: 1.3;
+								}
+								#TimelineCV .edu-position {
+									font-size: 1em;
+									font-weight: 400;
+									color: #ffffff;
+									line-height: 1.3;
+								}
+								#TimelineCV .edu-info {
+									font-size: 1em;
+									color: rgba(255,255,255,0.65);
+								}
+							
+								/* Controls */
+								#TimelineCV .edu-controls {
+									display: flex;
+									justify-content: space-between;
+									align-items: center;
+									margin-top: 1.5em;
+									gap: 1em;
+								}
+								#TimelineCV .edu-btn {
+									width: 40px; height: 40px;
+									border-radius: 50%;
+									border: solid 1px rgba(255,255,255,0.3);
+									background: transparent;
+									color: #ffffff;
+									cursor: pointer;
+									font-size: 1em;
+									line-height: 1;
+									display: inline-flex;
+									align-items: center;
+									justify-content: center;
+									transition: background-color 0.2s, border-color 0.2s;
+									padding: 0;
+								}
+								#TimelineCV .edu-btn:hover {
+									background-color: rgba(255,255,255,0.075);
+									border-color: rgba(255,255,255,0.5);
+								}
+								#TimelineCV .edu-btn:disabled {
+									opacity: 0.3;
+									cursor: default;
+								}
+								#TimelineCV .edu-dots {
+									display: flex;
+									gap: 10px;
+								}
+								#TimelineCV .edu-dot {
+									width: 9px; height: 9px;
+									border-radius: 50%;
+									background: rgba(255,255,255,0.3);
+									border: none;
+									padding: 0;
+									cursor: pointer;
+									transition: background-color 0.2s;
+								}
+								#TimelineCV .edu-dot.active {
+									background: #ffffff;
+								}
+							
+								/* CV embed */
+								#TimelineCV .cv-embed {
+									width: 100%;
+									height: 600px;
+									border: solid 1px rgba(255,255,255,0.15);
+									border-radius: 4px;
+									display: block;
+									background: rgba(255,255,255,0.05);
+								}
+								#TimelineCV .cv-actions {
+									text-align: center;
+									margin-top: 1em;
+								}
+							</style>
+							<h3 class="major">Academic Timeline</h3>
+							<div class="edu-stage">
+								<div class="edu-viewport">
+									<div class="edu-track">
+									
+										<!-- Entry 1 -->
+										<div class="edu-card">
+											<p class="edu-dates">July 2025 — June 2026</p>
+											<p class="edu-degree">Master of Research, Astrostatistics</p>
+											<p class="edu-school">Macquarie University · Sydney, NSW, Australia</p>
+										</div>
 
+										<div class="edu-card">
+											<p class="edu-dates">September 2022 — March 2024</p>
+											<p class="edu-degree">Master of Science, Data Science</p>
+											<p class="edu-school">University of Denver · Denver, CO, USA</p>
+										</div>
+									
+										<!-- Entry 2 -->
+										<div class="edu-card">
+											<p class="edu-dates">September 2018 — May 2022</p>
+											<p class="edu-degree">Bachelor of Science, Physics with a Minor in Astronomy</p>
+											<p class="edu-school">New York University · New York, NY, USA</p>
+										</div>
+
+										<div class="edu-card">
+											<p class="edu-dates">August 2014 — May 2018</p>
+											<p class="edu-degree">Highschool Diploma</p>
+											<p class="edu-school">Desert Mountain High School · Scottsdale, AZ, USA</p>
+										</div>
+									
+										
+									</div>
+								</div>
+							
+								<div class="edu-controls">
+									<button class="edu-btn edu-prev" aria-label="Previous entry">
+										<span class="icon solid fa-chevron-left"></span>
+									</button>
+									<div class="edu-dots"></div>
+									<button class="edu-btn edu-next" aria-label="Next entry">
+										<span class="icon solid fa-chevron-right"></span>
+									</button>
+								</div>
+							</div>
+							<h3 class="major">Research Timeline</h3>
+							<div class="edu-stage">
+								<div class="edu-viewport">
+									<div class="edu-track">
+										<div class="edu-card edu-card--research">
+											<p class="edu-dates">July 2025 — Present</p>
+											<p class="edu-project">Machine Learning for High Angular Resolution Images</p>
+											<p class="edu-position">Graduate Researcher · Benjamin Pope· Macquarie University · Sydney, NSW, Australia</p>
+											<p class="edu-info">
+												Analyzing binary-star parameter sampling generated from SDSS-IV APOGEE radial-velocity data using The Joker to better understand light-curve variability in TESS binary candidates
+											</p>										
+										</div>
+									
+										<!-- Research entry 1 -->
+										<div class="edu-card edu-card--research">
+											<p class="edu-dates">March 2020 — May 2025</p>
+											<p class="edu-project">Light-curve Variability Analysis</p>
+											<p class="edu-position">Research Assistant · David W. Hogg · New York University · New York, NY, USA</p>
+											<p class="edu-info">
+												Analyzing binary-star parameter sampling generated from SDSS-IV APOGEE radial-velocity data using The Joker to better understand light-curve variability in TESS binary candidates
+											</p>										
+										</div>
+									
+										<!-- Research entry 2 -->
+										<div class="edu-card edu-card--research">
+											<p class="edu-dates">October 2022 — May 2025</p>
+											<p class="edu-project">Light-curve Variability Analysis</p>
+											<p class="edu-position">Guest Researcher · Adrian Price-Whelan ·Flatiron Institute · New York, NY, USA</p>
+											<p class="edu-info">
+												Analyzing binary-star parameter sampling generated from SDSS-IV APOGEE radial-velocity data using The Joker to better understand light-curve variability in TESS binary candidates
+											</p>										
+										</div>
+										
+									
+									</div>
+								</div>
+								<div class="edu-controls">
+									<button class="edu-btn edu-prev" aria-label="Previous entry">
+										<span class="icon solid fa-chevron-left"></span>
+									</button>
+									<div class="edu-dots"></div>
+									<button class="edu-btn edu-next" aria-label="Next entry">
+										<span class="icon solid fa-chevron-right"></span>
+									</button>
+								</div>
+							</div>
+							<h3 class="major">Teaching Timeline</h3>
+							<div class="edu-stage">
+								<div class="edu-viewport">
+									<div class="edu-track">
+									
+										<!-- Research entry 1 -->
+										<div class="edu-card edu-card--teaching">
+											<p class="edu-dates">YEAR — YEAR</p>
+											<p class="edu-project">[Project title]</p>
+											<p class="edu-info">[What it was, what you did, key collaborators or outcomes.]</p>
+										</div>
+									
+										<!-- Research entry 2 -->
+										<div class="edu-card edu-card--teaching">
+											<p class="edu-dates">YEAR — YEAR</p>
+											<p class="edu-project">[Project title]</p>
+											<p class="edu-info">[Description.]</p>
+										</div>
+									
+										<!-- Add as many as you like -->
+									
+									</div>
+								</div>
+								<div class="edu-controls">
+									<button class="edu-btn edu-prev" aria-label="Previous entry">
+										<span class="icon solid fa-chevron-left"></span>
+									</button>
+									<div class="edu-dots"></div>
+									<button class="edu-btn edu-next" aria-label="Next entry">
+										<span class="icon solid fa-chevron-right"></span>
+									</button>
+								</div>
+							</div>
+							
+							<h3 class="major">CV</h3>
+
+							<iframe
+								class="cv-embed"
+								src="images/research/GoldfineJonah_TeachingCV_1125.pdf"
+								title="Jonah Goldfine CV">
+								<p>Your browser does not support inline PDFs. <a href="images/research/GoldfineJonah_TeachingCV_1125.pdf">Download the CV here</a>.</p>
+							</iframe>
+
+							<ul class="actions cv-actions">
+								<li><a href="images/research/GoldfineJonah_TeachingCV_1125.pdf" class="button primary icon solid fa-download" download>Download CV</a></li>
+							</ul>
 						 </article>
 
 						 <!--Baking -->
@@ -509,6 +790,54 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				(function() {
+					var stages = document.querySelectorAll('#TimelineCV .edu-stage');
+					stages.forEach(function(stage) {
+						var track = stage.querySelector('.edu-track');
+						var dotsWrap = stage.querySelector('.edu-dots');
+						var prev = stage.querySelector('.edu-prev');
+						var next = stage.querySelector('.edu-next');
+						if (!track || !dotsWrap || !prev || !next) return;
+					
+						var cards = track.children;
+						var n = cards.length;
+						var idx = 0;
+					
+						track.style.width = (n * 100) + '%';
+						for (var i = 0; i < n; i++) {
+							cards[i].style.width = (100 / n) + '%';
+							cards[i].style.flex = '0 0 ' + (100 / n) + '%';
+						}
+					
+						for (var i = 0; i < n; i++) {
+							var d = document.createElement('button');
+							d.className = 'edu-dot' + (i === 0 ? ' active' : '');
+							d.setAttribute('aria-label', 'Go to entry ' + (i + 1));
+							(function(j) {
+								d.addEventListener('click', function() { go(j); });
+							})(i);
+							dotsWrap.appendChild(d);
+						}
+					
+						function go(i) {
+							idx = Math.max(0, Math.min(n - 1, i));
+							track.style.transform = 'translateX(-' + (idx * (100 / n)) + '%)';
+							var dots = dotsWrap.children;
+							for (var k = 0; k < dots.length; k++) {
+								dots[k].classList.toggle('active', k === idx);
+							}
+							prev.disabled = (idx === 0);
+							next.disabled = (idx === n - 1);
+						}
+					
+						prev.addEventListener('click', function() { go(idx - 1); });
+						next.addEventListener('click', function() { go(idx + 1); });
+					
+						go(0);
+					});
+				})();
+			</script>
 
 	</body>
 </html>

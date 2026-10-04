@@ -3,6 +3,54 @@
 
 <h2 class="major">Baking</h2>
 
-<p>
-	Coming soon.
-</p>
+	<p>
+		I like figuring out the science of baking as much as the baking itself — why a
+		dough behaves the way it does, what happens if you change one variable, which
+		steps actually matter. These are the recipes I have landed on, written the way
+		I would want them written: weights, not cups, and a note on what to look for
+		rather than just how long to wait.
+	</p>
+
+	<p>
+		Each one opens as its own page, so you can bookmark it, send someone the link,
+		or hit Print to get a clean one-page version for the kitchen.
+	</p>
+
+	<!--
+		ONE CARD PER RECIPE. To add one:
+		  1. cp recipes/_template.html recipes/my-recipe.html  and fill it in
+		  2. copy a <li> block below, point the href at it, update the title/note
+		  3. optional: add a photo to images/baking/ and uncomment the <img>
+
+		Paths in THIS file are relative to index.html (so images/baking/..., not
+		../images/baking/...). Inside recipes/*.html they need the leading ../ —
+		that trips everyone up once.
+
+		The card below points at the template so there is something to click;
+		replace it with your first real recipe.
+	-->
+	<ul class="recipe-cards">
+
+		<li>
+			<a href="recipes/_template.html">
+				<!-- <img src="images/baking/my-recipe.jpg" alt="" /> -->
+				<div class="card-body">
+					<div class="card-title">Example recipe (template)</div>
+					<div class="card-note">Placeholder — replace with a real one</div>
+				</div>
+			</a>
+		</li>
+
+		<!--
+		<li>
+			<a href="recipes/chocolate-babka.html">
+				<img src="images/baking/chocolate-babka.jpg" alt="A sliced chocolate babka" />
+				<div class="card-body">
+					<div class="card-title">Chocolate Babka</div>
+					<div class="card-note">Overnight cold ferment · 1 loaf</div>
+				</div>
+			</a>
+		</li>
+		-->
+
+	</ul>

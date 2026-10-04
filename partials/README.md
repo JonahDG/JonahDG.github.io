@@ -39,6 +39,36 @@ partial — so keep writing `images/research/lightcurve.png`, not `../images/...
 
 The `id` and the `href` anchor must match.
 
+## Recipes are different — they're real pages
+
+Recipes don't live in `partials/`. Each one is a standalone page under
+`recipes/`, so it has its own URL you can bookmark, share, or print:
+
+```
+recipes/_template.html        copy this to start a new recipe
+recipes/chocolate-babka.html  -> jonahdg.github.io/recipes/chocolate-babka.html
+assets/css/recipes.css        recipe layout, the Baking card grid, print rules
+images/baking/                photos
+```
+
+`partials/baking.html` is just the index: a grid of cards linking out to those
+pages. To add a recipe:
+
+1. `cp recipes/_template.html recipes/my-recipe.html` and fill in the `[...]`
+   placeholders, including the JSON-LD block near the top.
+2. Copy one `<li>` card in `partials/baking.html` and point it at the new file.
+3. Optional: drop a photo in `images/baking/` and uncomment the `<img>`.
+
+**The one gotcha:** paths inside `recipes/*.html` need a leading `../`
+(`../images/baking/babka.jpg`), because those pages sit one folder down.
+Paths inside `partials/*.html` do not, because they end up inside `index.html`.
+
+Every recipe page has a Print / Save as PDF button. `recipes.css` has an
+`@media print` block that swaps the dark theme for black-on-white, drops the
+nav and background, and keeps ingredients and steps from splitting across
+pages — so you get a usable kitchen printout without maintaining a separate
+PDF of each recipe.
+
 ## Previewing locally
 
 `include.js` uses `fetch()`, which browsers refuse on `file://` URLs. Opening

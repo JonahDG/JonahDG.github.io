@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<!--
+	RECIPE TEMPLATE  —  copy this file, don't edit it.
+
+		cp recipes/_template.html recipes/chocolate-babka.html
+
+	Then work top to bottom: the <title>, the meta description, the JSON-LD
+	block, then the page itself. Everything you need to change is marked with
+	square brackets like [this].
+
+	Paths are relative to THIS folder (recipes/), so assets and images need a
+	leading ../  —  e.g. ../images/baking/babka.jpg. This is different from the
+	partials/ files, where paths are relative to index.html instead.
+
+	Last step: add a card for it to partials/baking.html so it shows up on the
+	Baking tab.
+-->
+<html lang="en">
+	<head>
+		<title>[Recipe Name] &middot; Jonah Goldfine</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="[One sentence about the recipe. This is what shows up under the link in Google results.]" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/recipes.css" />
+
+		<!--
+			Structured data. This is what lets Google show the recipe as a rich
+			result (photo, times, rating) instead of a plain blue link. It is
+			invisible to readers, so keep it in sync with the page by hand.
+
+			Durations use ISO 8601: PT30M = 30 min, PT1H30M = 1 h 30 min,
+			P1DT2H = 1 day 2 h (useful for a long cold ferment).
+			Delete any line you do not have a value for.
+			Check it with https://search.google.com/test/rich-results
+		-->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Recipe",
+			"name": "[Recipe Name]",
+			"author": { "@type": "Person", "name": "Jonah Goldfine" },
+			"description": "[Same one sentence as the meta description above.]",
+			"image": ["../images/baking/[photo].jpg"],
+			"datePublished": "[YYYY-MM-DD]",
+			"recipeCategory": "Dessert",
+			"recipeYield": "[1 loaf]",
+			"prepTime": "PT30M",
+			"cookTime": "PT45M",
+			"totalTime": "PT1H15M",
+			"recipeIngredient": [
+				"[500 g bread flour]",
+				"[7 g instant yeast]",
+				"[one line per ingredient, quantity included]"
+			],
+			"recipeInstructions": [
+				{ "@type": "HowToStep", "text": "[First step, as one sentence or two.]" },
+				{ "@type": "HowToStep", "text": "[Second step.]" }
+			]
+		}
+		</script>
+	</head>
+
+	<body>
+
+		<!-- The theme's background image. -->
+		<div id="bg"></div>
+
+		<div class="recipe-shell">
+
+			<p class="recipe-back"><a href="../#Baking">&larr; Back to baking</a></p>
+
+			<article class="recipe-panel">
+
+				<h1>[Recipe Name]</h1>
+
+				<p class="recipe-blurb">
+					[A couple of sentences: where it came from, why you make it this way,
+					what the interesting bit of science is. Delete if you want to get
+					straight to the recipe.]
+				</p>
+
+				<!-- Optional photo. Put the file in images/baking/ first. -->
+				<!--
+				<figure class="recipe-hero">
+					<img src="../images/baking/[photo].jpg" alt="[Describe the photo]" />
+					<figcaption>[Caption]</figcaption>
+				</figure>
+				-->
+
+				<!-- Yield and timings. Delete any <div> you don't need. -->
+				<div class="recipe-meta">
+					<div><div class="label">Makes</div><div class="value">[1 loaf]</div></div>
+					<div><div class="label">Prep</div><div class="value">[30 min]</div></div>
+					<div><div class="label">Bake</div><div class="value">[45 min]</div></div>
+					<div><div class="label">Total</div><div class="value">[1 h 15 min]</div></div>
+				</div>
+
+				<div class="recipe-cols">
+
+					<div>
+						<h2>Ingredients</h2>
+						<!--
+							<span class="qty"> keeps the quantities in a tidy column.
+							Use <li class="group"> for a sub-heading like "For the filling".
+						-->
+						<ul class="ingredients">
+							<li><span class="qty">500 g</span> [bread flour]</li>
+							<li><span class="qty">7 g</span> [instant yeast]</li>
+							<li><span class="qty">10 g</span> [salt]</li>
+
+							<li class="group">For the [filling]</li>
+							<li><span class="qty">200 g</span> [dark chocolate]</li>
+							<li><span class="qty">100 g</span> [butter]</li>
+						</ul>
+					</div>
+
+					<div>
+						<h2>Method</h2>
+						<!--
+							Steps are numbered automatically — don't type the numbers.
+							Use <li class="group"> for an unnumbered divider like "Day 2".
+						-->
+						<ol class="steps">
+							<li>[What to do first.]</li>
+							<li>[Then this. Mention what it should look or feel like, not
+								just the time — "until it springs back slowly" beats "5 min".]</li>
+							<li>[And so on.]</li>
+
+							<li class="group">Day 2</li>
+							<li>[Next morning, do this.]</li>
+						</ol>
+					</div>
+
+				</div>
+
+				<!-- Optional. Substitutions, what went wrong the first time, etc. -->
+				<div class="recipe-notes">
+					<h2>Notes</h2>
+					<ul>
+						<li>[A substitution that works.]</li>
+						<li>[Something that goes wrong and how to avoid it.]</li>
+					</ul>
+				</div>
+
+				<ul class="actions no-print">
+					<li><button class="button primary icon solid fa-print" onclick="window.print()">Print / Save as PDF</button></li>
+				</ul>
+
+			</article>
+
+			<footer class="recipe-footer">
+				<p>&copy; Jonah Goldfine &middot; <a href="../">jonahdg.github.io</a></p>
+			</footer>
+
+		</div>
+
+	</body>
+</html>

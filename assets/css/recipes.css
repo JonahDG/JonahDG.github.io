@@ -1,0 +1,426 @@
+/*
+	Recipe pages + the Baking tab's card grid.
+
+	Loaded alongside assets/css/main.css (the Dimension theme), which supplies
+	the colours, fonts, background image, .button and ul.actions styles.
+	This file only adds what recipes need:
+
+	  .recipe-shell / .recipe-panel   the page frame (recipe pages don't use
+	                                  #wrapper / #main, which are built for the
+	                                  single-page overlay layout)
+	  .recipe-meta                    the yield / prep / bake / total strip
+	  .recipe-cols                    ingredients beside method, stacked on phones
+	  .recipe-cards                   the clickable grid on the Baking tab
+	  @media print                    "Save as PDF" output (see bottom of file)
+
+	Note: main.css resets `ol, ul { list-style: none }`, so the ingredient
+	bullets and step numbers below are drawn with CSS counters/pseudo-elements
+	rather than native list markers.
+*/
+
+/* ---------- Recipe page frame ---------- */
+
+.recipe-shell {
+	position: relative;
+	z-index: 3;
+	min-height: 100vh;
+	padding: 3rem 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.recipe-panel {
+	width: 48rem;
+	max-width: 100%;
+	padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+	background-color: rgba(27, 31, 34, 0.85);
+	border-radius: 4px;
+}
+
+.recipe-back {
+	width: 48rem;
+	max-width: 100%;
+	margin-bottom: 1.25rem;
+	font-size: 0.9rem;
+	letter-spacing: 0.1rem;
+	text-transform: uppercase;
+}
+
+	.recipe-back a {
+		border-bottom-color: transparent;
+	}
+
+	.recipe-back a:hover {
+		border-bottom-color: #ffffff;
+	}
+
+.recipe-footer {
+	width: 48rem;
+	max-width: 100%;
+	margin-top: 1.5rem;
+	font-size: 0.8rem;
+	color: rgba(255, 255, 255, 0.5);
+	text-align: center;
+}
+
+/* ---------- Title block ---------- */
+
+.recipe-panel h1 {
+	border-bottom: solid 1px #ffffff;
+	padding-bottom: 0.5rem;
+	margin-bottom: 1rem;
+	font-size: 2rem;
+	line-height: 1.3;
+}
+
+.recipe-blurb {
+	color: rgba(255, 255, 255, 0.75);
+	font-style: italic;
+	margin-bottom: 1.5rem;
+}
+
+.recipe-hero {
+	margin: 0 0 1.5rem 0;
+}
+
+	.recipe-hero img {
+		display: block;
+		width: 100%;
+		border-radius: 4px;
+	}
+
+	.recipe-hero figcaption {
+		margin-top: 0.4rem;
+		font-size: 0.7rem;
+		color: rgba(255, 255, 255, 0.5);
+		text-align: center;
+	}
+
+/* ---------- Yield / timing strip ---------- */
+
+.recipe-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	padding: 1rem 1.25rem;
+	margin-bottom: 2rem;
+	background: rgba(255, 255, 255, 0.05);
+	border: solid 1px rgba(255, 255, 255, 0.15);
+	border-radius: 4px;
+}
+
+	.recipe-meta div {
+		min-width: 6rem;
+	}
+
+	.recipe-meta dt,
+	.recipe-meta .label {
+		font-size: 0.7rem;
+		letter-spacing: 0.2rem;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	.recipe-meta dd,
+	.recipe-meta .value {
+		margin: 0.2rem 0 0 0;
+		font-size: 1rem;
+	}
+
+/* ---------- Ingredients beside method ---------- */
+
+.recipe-cols {
+	display: grid;
+	grid-template-columns: 17rem 1fr;
+	gap: 2.5rem;
+	align-items: start;
+}
+
+@media screen and (max-width: 980px) {
+
+	.recipe-cols {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+}
+
+.recipe-cols h2 {
+	border-bottom: solid 1px #ffffff;
+	padding-bottom: 0.5rem;
+	margin-bottom: 1.25rem;
+	font-size: 1.1rem;
+	letter-spacing: 0.15rem;
+	text-transform: uppercase;
+}
+
+/* Ingredients: one per line, quantity and item on the same row. */
+
+.ingredients {
+	margin: 0 0 1.5rem 0;
+	padding: 0;
+}
+
+	.ingredients li {
+		padding: 0.5rem 0;
+		border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+	}
+
+	.ingredients li:last-child {
+		border-bottom: none;
+	}
+
+	.ingredients .qty {
+		display: inline-block;
+		min-width: 5.5rem;
+		font-weight: 600;
+	}
+
+	/* A sub-heading inside the ingredient list, e.g. "For the filling". */
+	.ingredients li.group {
+		border-bottom: none;
+		padding-top: 1.25rem;
+		font-size: 0.7rem;
+		letter-spacing: 0.2rem;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+/* Method: auto-numbered steps. */
+
+.steps {
+	counter-reset: step;
+	margin: 0;
+	padding: 0;
+}
+
+	.steps li {
+		counter-increment: step;
+		position: relative;
+		padding: 0 0 1.25rem 3rem;
+	}
+
+	.steps li:before {
+		content: counter(step);
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 2rem;
+		height: 2rem;
+		border: solid 1px rgba(255, 255, 255, 0.3);
+		border-radius: 50%;
+		font-size: 0.9rem;
+		line-height: 2rem;
+		text-align: center;
+		color: rgba(255, 255, 255, 0.8);
+	}
+
+	/* A sub-heading inside the method, e.g. "Day 2". */
+	.steps li.group {
+		counter-increment: none;
+		padding-left: 0;
+		padding-top: 1rem;
+		font-size: 0.7rem;
+		letter-spacing: 0.2rem;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	.steps li.group:before {
+		content: none;
+	}
+
+/* ---------- Notes ---------- */
+
+.recipe-notes {
+	margin-top: 2rem;
+	padding-top: 1.5rem;
+	border-top: solid 1px rgba(255, 255, 255, 0.15);
+}
+
+	.recipe-notes h2 {
+		font-size: 1.1rem;
+		letter-spacing: 0.15rem;
+		text-transform: uppercase;
+		margin-bottom: 1rem;
+	}
+
+	.recipe-notes ul li {
+		position: relative;
+		padding-left: 1.25rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.recipe-notes ul li:before {
+		content: '\2014';
+		position: absolute;
+		left: 0;
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+/* ---------- Card grid (used on the Baking tab) ---------- */
+
+.recipe-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+	gap: 1.5rem;
+	margin: 0;
+	padding: 0;
+}
+
+	.recipe-cards li {
+		margin: 0;
+		padding: 0;
+	}
+
+	.recipe-cards a {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		border-bottom: none;
+		background: rgba(255, 255, 255, 0.05);
+		border: solid 1px rgba(255, 255, 255, 0.15);
+		border-radius: 4px;
+		overflow: hidden;
+		transition: background-color 0.2s ease, border-color 0.2s ease;
+	}
+
+	.recipe-cards a:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+		border-color: rgba(255, 255, 255, 0.4);
+	}
+
+	.recipe-cards img {
+		display: block;
+		width: 100%;
+		height: 9rem;
+		object-fit: cover;
+	}
+
+	.recipe-cards .card-body {
+		padding: 1rem 1.15rem 1.15rem 1.15rem;
+	}
+
+	.recipe-cards .card-title {
+		font-size: 1rem;
+		line-height: 1.3;
+		color: #ffffff;
+	}
+
+	.recipe-cards .card-note {
+		margin-top: 0.35rem;
+		font-size: 0.8rem;
+		color: rgba(255, 255, 255, 0.6);
+	}
+
+/* ---------- Print / "Save as PDF" ---------- */
+/*
+	Browsers print whatever the screen styles say unless told otherwise, and the
+	theme's screen styles are white-on-dark at 16pt — which would waste a
+	cartridge and overflow the page. These rules swap to black-on-white at a
+	sane size, drop the chrome, and keep ingredients and steps from being split
+	across pages.
+*/
+
+@media print {
+
+	@page {
+		margin: 15mm;
+	}
+
+	html {
+		font-size: 11pt;
+	}
+
+	body {
+		background: #ffffff !important;
+		color: #000000 !important;
+	}
+
+	/* Chrome we don't want on paper. */
+	#bg,
+	.recipe-back,
+	.recipe-footer,
+	.no-print {
+		display: none !important;
+	}
+
+	.recipe-shell {
+		display: block;
+		min-height: 0;
+		padding: 0;
+	}
+
+	.recipe-panel {
+		width: 100%;
+		padding: 0;
+		background: none !important;
+	}
+
+	.recipe-panel h1 {
+		border-bottom-color: #000000;
+		font-size: 1.8rem;
+	}
+
+	.recipe-blurb,
+	.recipe-meta dt,
+	.recipe-meta .label,
+	.ingredients li.group,
+	.steps li.group,
+	.recipe-hero figcaption {
+		color: #444444 !important;
+	}
+
+	.recipe-meta {
+		background: none;
+		border-color: #999999;
+		padding: 0.5rem 0;
+		gap: 1.25rem;
+	}
+
+	.recipe-cols {
+		grid-template-columns: 15rem 1fr;
+		gap: 1.5rem;
+	}
+
+	.recipe-cols h2,
+	.recipe-notes h2 {
+		border-bottom-color: #000000;
+	}
+
+	.ingredients li {
+		border-bottom-color: #dddddd;
+	}
+
+	.steps li:before {
+		border-color: #666666;
+		color: #000000;
+	}
+
+	.recipe-notes {
+		border-top-color: #999999;
+	}
+
+	/* Don't split an ingredient or a step across a page break. */
+	.ingredients li,
+	.steps li,
+	.recipe-hero {
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
+
+	/* Hero photo is nice on screen, big and slow on paper. Keep it small. */
+	.recipe-hero img {
+		max-height: 60mm;
+		width: auto;
+	}
+
+	/* Spell out link targets, since a printed page can't be clicked. */
+	a[href^="http"]:after {
+		content: " (" attr(href) ")";
+		font-size: 0.8em;
+		color: #555555;
+	}
+
+}

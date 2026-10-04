@@ -1,0 +1,81 @@
+<!-- Tab content: #Research  —  included into index.html by assets/js/include.js
+     Edit this file to change the "Research" tab. Do NOT add <html>/<head>/<body> here. -->
+
+<h2 class="major">Research</h2>
+<h3 class="major">Current Work</h3>
+	<figure style="float:right; width:300px; margin:0 20px 15px 0;">
+		<img src="images/research/emnist_science_5x.gif" alt="AMI" style="width:100%; display:block;" />
+		<figcaption style="text-align:center; font-size:0.5em; color:#d3d3d3; margin-top:4px;">
+			Sliding through machine-learned latent space of eMNIST letters spelling "Science is fun"
+		</figcaption>
+	</figure>
+	<p>
+		For my Masters of Research, I am working with Prof. Benjamin Pope (Macquarie University) and Ph.D. 
+		candidate Max Charles (University of Sydney) to use machine learning to augment 
+		<a href="https://arxiv.org/pdf/2510.10924"><strong>dorito</strong></a>, a regularized-maximum likelihood
+		framework for deconvolving interferograms from <em>JWST</em>'s <em>Aperture Mask Interferometer</em>
+		(<em>AMI</em>) with the goal of improving the angular resolution in order to see more complex structures
+		within protoplanetary disks. In particular, we hope to find complex substractors that could indicate the 
+		presence of planets and potential dynamical processes that form them.
+	</p>
+	<figure style="float:left; width:300px; margin:0px 20px 15px 0px;">
+		<iframe
+			src="images/research/GoldfineJonah_MResPoster.pdf#view=FitH"
+			style="width:100%; height:500px;display:block;"
+			title="MRes Poster"
+		>
+		</iframe>
+
+		<figcaption>
+			<a href="images/research/GoldfineJonah_MResPoster.pdf">
+				Download the PDF of MRes Poster Presentation
+			</a>
+		</figcaption>
+		</figure>
+		<p>
+			In order to do this, I have developed a convolutional autoencoder that learns two things:
+		</p>
+		<ul style="margin-left: 325px;">
+			<li>
+				How to encode the two dimensional image space into a compressed representation, or latent space,
+				and then decode it back into the original image space.
+			</li>
+			<li>
+				Denoise images as it is learning the encoding and decoding.
+			</li>
+		</ul>
+		<p>
+			By making the encoder and decoder portions of the autoencoder seperable, I am able to replace the pixel space
+			portion of the deconvolution within <strong>dorito</strong> with one in the machine-learned latent space. This 
+			means that there are far fewer features to gradient descend on. Like many other data compression methods, this
+			is not lossless, but a vast majority of the information is preserved. Going one step further, I've used a 
+			normalized version of the latent space to create a machine-learned initialization for 
+			<strong>dorito</strong> to replace something like a dirty beam or uniform distribution.
+			</p>
+
+					<p>
+						So far I've developed an autoencoder trained on emnist leters and numbers as a baseline architecture before
+						switching to images that better represent the kinds of objects we might be able to see with <em>AMI</em>.
+					</p> 
+
+				<h3 class="major">Past Work</h3>
+					<figure style="float:right; width:550px; margin:20px 20px 20px 20px;">
+						<img src="images/research/lightcurve.png" alt="test" style="width:100%; display:block;" />
+						<figcaption style="text-align:center; font-size:0.5em; color:#d3d3d3; margin-top:4px;">
+							Lightcurves phases folded by mutliples of the period
+						</figcaption>
+					</figure>
+					<p>
+						During my time at NYU and the University of Denver, I worked with Professor David W. Hogg (NYU, 
+						Flatiron Institute) and Adrian Price-Whelan (Flatiron Institue) looking for a correlation between
+						light-curve variability and Monte Carlo samples using 
+						<a href="https://arxiv.org/abs/1610.07602"><strong>The Joker</strong></a> (Yo-ker) and the Lomb-Scargle and box-
+						least-squares periodograms. This resulted in two abstracts and posters presented at the 
+						<a href="https://scixplorer.org/abs/2023AAS...24130232G/abstract">241st</a> and
+						<a href="https://scixplorer.org/abs/2023AAS...24130232G/abstract">243rd</a> AAS meetings. 
+					</p>
+					<p>
+						This project involved taking periods of variable stars using various method (The Joker and periodograms)
+						to determind the optimal period to "fold" the lightcurve. I would also compare the periodgram-folded
+						lightcurves with the period-eccentricity samples from <strong>The Joker</strong>.
+					</p>
